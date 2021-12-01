@@ -1,0 +1,42 @@
+site_name: Dart Version Manager
+site_url: https://github.com/educup/dvm
+repo_url: https://github.com/educup/dvm
+edit_uri: "https://github.com/educup/dvm/edit/main/docs"
+copyright: Developed with ❤️ for EducUp
+
+theme:
+  name: material
+  logo: logo.png
+  favicon: logo.png
+  language: en
+  features:
+    - navigation.instant
+  palette:
+    primary: black
+    accent: light blue
+
+nav:
+  - Dart Version Manager: index.md
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - toc:
+      permalink: 🔗
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://educup.io
+      name: Web
+    - icon: fontawesome/brands/github
+      link: https://github.com/educup
+      name: GitHub
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/educup.io
+      name: Facebook
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:hello@educup.io
+      name: Gmail

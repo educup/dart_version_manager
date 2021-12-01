@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "dvm"
+version = "0.0.1"
+description = "Dart Version Manager CLI implemented with Python and Typer."
+authors = ["educup <hello@educup.io>"]
+homepage = "https://github.com/educup/dvm"
+repository = "https://github.com/educup/dvm"
+documentation = "https://github.com/educup/dvm"
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+typer = "^0.3.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+black = "^21.11b1"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+pytest-cov = "^3.0.0"
+typer-cli = "^0.0.12"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

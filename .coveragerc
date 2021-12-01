@@ -1,0 +1,4 @@
+[run]
+omit =
+    dvm/__main__.py
+    tests/*
