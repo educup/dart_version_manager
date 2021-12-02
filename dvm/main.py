@@ -4,12 +4,13 @@ from typing import Optional
 import typer
 
 from dvm.core import DartVersion, NoVersionError, InvalidDataError
-from dvm.commands import major_app
+from dvm.commands import major_app, minor_app
 from dvm.utils import filename_option
 
 app = typer.Typer(help="Dart Version Manager CLI implemented with Python and Typer")
 
 app.add_typer(major_app, name="major")
+app.add_typer(minor_app, name="minor")
 
 
 NO_VERSION = (
