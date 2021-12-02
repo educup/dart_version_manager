@@ -82,10 +82,10 @@ class Version:
             self.patch = 0
 
     def set_pre_release(self, pre_release: str = "") -> None:
-        self.pre_release = pre_release if not pre_release is None else ""
+        self.pre_release = pre_release if pre_release is not None else ""
 
     def set_build(self, build: str = "") -> None:
-        self.build = build if not build is None else ""
+        self.build = build if build is not None else ""
 
     @classmethod
     def copy(cls, original):
@@ -116,7 +116,7 @@ class Version:
                 build=build,
                 pre_release=pre_release,
             )
-        except:
+        except Exception:
             raise InvalidDataError()
 
 
