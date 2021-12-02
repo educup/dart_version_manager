@@ -4,9 +4,12 @@ from typing import Optional
 import typer
 
 from dvm.core import DartVersion, NoVersionError, InvalidDataError
+from dvm.commands import major_app
 from dvm.utils import filename_option
 
 app = typer.Typer(help="Dart Version Manager CLI implemented with Python and Typer")
+
+app.add_typer(major_app, name="major")
 
 
 NO_VERSION = (
@@ -24,7 +27,7 @@ def get(
         if verbose:
             typer.echo(f"Version: {version}")
         else:
-            typer.echo(str(version))
+            typer.echo(version)
     except NoVersionError:
         typer.echo(NO_VERSION)
         raise typer.Exit(code=1)
@@ -39,7 +42,7 @@ SET_ARG_HELP = SET_ARG_HELP_1 + SET_ARG_HELP_2 + SET_ARG_HELP_3
 
 INVALID_FORMAT = 'The version format is invalid. See "dvm set --help".'
 
-VERSION_CHANGED = 'Version changed from "%s" to "%s"'
+VERSION_CHANGED = 'Version changed from "%s" to "%s".'
 
 
 @app.command(name="set", help="Set project version")
@@ -58,7 +61,7 @@ def set(
         if verbose:
             typer.echo(VERSION_CHANGED % (str(old_ver), str(new_ver)))
         else:
-            typer.echo(str(new_ver))
+            typer.echo(new_ver)
     except InvalidDataError:
         typer.echo(INVALID_FORMAT)
         raise typer.Exit(code=1)
