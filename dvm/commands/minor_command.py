@@ -55,9 +55,9 @@ def minor_up(
 INVALID_INT = "Invalid integer."
 
 
-@app.command(name="set", help="Set the version minor")
+@app.command(name="set", help='Set "minor" version')
 def minor_set(
-    minor: int = typer.Argument(..., help="Version minor"),
+    minor: int = typer.Argument(..., help='"minor" version'),
     filename: Optional[Path] = filename_option,
     verbose: bool = True,
 ):

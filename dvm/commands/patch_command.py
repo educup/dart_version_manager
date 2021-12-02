@@ -6,7 +6,7 @@ import typer
 from dvm.core import DartVersion, NoVersionError
 from dvm.utils import filename_option
 
-app = typer.Typer(help='Manage "major" version')
+app = typer.Typer(help='Manage "patch"')
 
 
 NO_VERSION = (
@@ -14,17 +14,17 @@ NO_VERSION = (
 )
 
 
-@app.command(name="get", help='Get "major" version')
-def major_get(
+@app.command(name="get", help='Get "patch"')
+def patch_get(
     filename: Optional[Path] = filename_option,
     verbose: bool = True,
 ):
     try:
         version = DartVersion.from_pubspec(str(filename))
         if verbose:
-            typer.echo(f"Major: {version.major}")
+            typer.echo(f"Patch: {version.patch}")
         else:
-            typer.echo(version.major)
+            typer.echo(version.patch)
     except NoVersionError:
         typer.echo(NO_VERSION)
         raise typer.Exit(code=1)
@@ -33,15 +33,15 @@ def major_get(
 VERSION_CHANGED = 'Version changed from "%s" to "%s".'
 
 
-@app.command(name="up", help='Increase "major" version by 1')
-def major_up(
+@app.command(name="up", help='Increase "patch" by 1')
+def patch_up(
     filename: Optional[Path] = filename_option,
     verbose: bool = True,
 ):
     try:
         new_ver = DartVersion.from_pubspec(str(filename))
         old_ver = DartVersion.copy(new_ver)
-        new_ver.increase_major_up()
+        new_ver.increase_patch_up()
         new_ver.to_pubspec(str(filename))
         if verbose:
             typer.echo(VERSION_CHANGED % (str(old_ver), str(new_ver)))
@@ -55,17 +55,17 @@ def major_up(
 INVALID_INT = "Invalid integer."
 
 
-@app.command(name="set", help='Set "major" version')
-def major_set(
-    major: int = typer.Argument(..., help='"major" version'),
+@app.command(name="set", help='Set "patch"')
+def patch_set(
+    patch: int = typer.Argument(..., help='"patch" number'),
     filename: Optional[Path] = filename_option,
     verbose: bool = True,
 ):
     try:
         new_ver = DartVersion.from_pubspec(str(filename))
         old_ver = DartVersion.copy(new_ver)
-        major = int(major)
-        new_ver.set_major(major)
+        patch = int(patch)
+        new_ver.set_patch(patch)
         new_ver.to_pubspec(str(filename))
         if verbose:
             typer.echo(VERSION_CHANGED % (str(old_ver), str(new_ver)))
