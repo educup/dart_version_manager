@@ -39,6 +39,9 @@ class Version:
         build = f"+{self.build}" if self.build else ""
         return f"{self.major}.{self.minor}.{self.patch}{pre}{build}"
 
+    def __eq__(self, o: object) -> bool:
+        return isinstance(o, Version) and str(self) == str(o)
+
     def increase_major_up(self) -> None:
         self.major += 1
         self.minor = 0
@@ -83,6 +86,11 @@ class Version:
 
     def set_build(self, build: str = "") -> None:
         self.build = build if not build is None else ""
+
+    @classmethod
+    def copy(cls, original):
+        copy = cls.parse_version(original)
+        return copy
 
     @classmethod
     def parse_version(cls, data: str):
