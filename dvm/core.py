@@ -89,7 +89,7 @@ class Version:
 
     @classmethod
     def copy(cls, original):
-        copy = cls.parse_version(original)
+        copy = cls.parse_version(str(original))
         return copy
 
     @classmethod
