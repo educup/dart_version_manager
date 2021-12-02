@@ -9,10 +9,25 @@ from dvm.utils import filename_option
 app = typer.Typer(help="Dart Version Manager CLI implemented with Python and Typer")
 
 
+NO_VERSION = (
+    "The provided pubspec don't have a version defined. Please define it first."
+)
+
+
 @app.command(name="get", help="Get project version")
-def get(pubspec_file: Optional[Path] = filename_option):
-    version = DartVersion.from_pubspec(str(pubspec_file))
-    typer.echo(f"Version: {version}")
+def get(
+    pubspec_file: Optional[Path] = filename_option,
+    verbose: bool = True,
+):
+    try:
+        version = DartVersion.from_pubspec(str(pubspec_file))
+        if verbose:
+            typer.echo(f"Version: {version}")
+        else:
+            typer.echo(str(version))
+    except NoVersionError:
+        typer.echo(NO_VERSION)
+        raise typer.Exit(code=1)
 
 
 SET_ARG_HELP_1 = (
@@ -24,10 +39,6 @@ SET_ARG_HELP = SET_ARG_HELP_1 + SET_ARG_HELP_2 + SET_ARG_HELP_3
 
 INVALID_FORMAT = 'The version format is invalid. See "dvm set --help".'
 
-NO_VERSION_TO_UPDATE = (
-    "The provided pubspec don't have a version defined. Please define it first."
-)
-
 VERSION_CHANGED = 'Version changed from "%s" to "%s"'
 
 
@@ -38,13 +49,19 @@ def set(
         help=SET_ARG_HELP,
     ),
     pubspec_file: Optional[Path] = filename_option,
+    verbose: bool = True,
 ):
     try:
         new_ver = DartVersion.parse_version(version)
         old_ver = DartVersion.from_pubspec(pubspec_file)
         new_ver.to_pubspec(pubspec_file)
-        typer.echo(VERSION_CHANGED % (str(old_ver), str(new_ver)))
+        if verbose:
+            typer.echo(VERSION_CHANGED % (str(old_ver), str(new_ver)))
+        else:
+            typer.echo(str(new_ver))
     except InvalidDataError:
         typer.echo(INVALID_FORMAT)
+        raise typer.Exit(code=1)
     except NoVersionError:
-        typer.echo(NO_VERSION_TO_UPDATE)
+        typer.echo(NO_VERSION)
+        raise typer.Exit(code=1)
