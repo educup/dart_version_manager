@@ -13,12 +13,12 @@
 [![Website](https://img.shields.io/website?up_message=online&url=https%3A%2F%2Feducup.github.io/dvm)](https://educup.github.io/dvm)
 [![GitHub contributors](https://img.shields.io/github/contributors/educup/dvm)](https://github.com/educup/dvm/graphs/contributors)
 
-Dart Version Manager CLI implemented with Python and Typer
+[Dart](https://dart.dev) Version Manager CLI implemented with [Python](https://www.python.org) and [Typer](https://typer.tiangolo.com).
 
 **Usage**:
 
 ```console
-$ Dart Package Manager [OPTIONS] COMMAND [ARGS]...
+$ dvm [OPTIONS] COMMAND [ARGS]...
 ```
 
 **Options**:
@@ -37,14 +37,14 @@ $ Dart Package Manager [OPTIONS] COMMAND [ARGS]...
 * `pre-release`: Manage "pre-release" tag
 * `set`: Set project version
 
-## `Dart Package Manager build`
+## `dvm build`
 
 Manage "build" tag
 
 **Usage**:
 
 ```console
-$ Dart Package Manager build [OPTIONS] COMMAND [ARGS]...
+$ dvm build [OPTIONS] COMMAND [ARGS]...
 ```
 
 **Options**:
@@ -57,14 +57,14 @@ $ Dart Package Manager build [OPTIONS] COMMAND [ARGS]...
 * `set`: Set "build" tag
 * `up`: Increase "build" tag's first detected number...
 
-### `Dart Package Manager build get`
+### `dvm build get`
 
 Get "build" tag
 
 **Usage**:
 
 ```console
-$ Dart Package Manager build get [OPTIONS] [FILENAME]
+$ dvm build get [OPTIONS] [FILENAME]
 ```
 
 **Arguments**:
@@ -76,14 +76,14 @@ $ Dart Package Manager build get [OPTIONS] [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-### `Dart Package Manager build set`
+### `dvm build set`
 
 Set "build" tag
 
 **Usage**:
 
 ```console
-$ Dart Package Manager build set [OPTIONS] BUILD [FILENAME]
+$ dvm build set [OPTIONS] BUILD [FILENAME]
 ```
 
 **Arguments**:
@@ -96,14 +96,14 @@ $ Dart Package Manager build set [OPTIONS] BUILD [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-### `Dart Package Manager build up`
+### `dvm build up`
 
 Increase "build" tag's first detected number by 1
 
 **Usage**:
 
 ```console
-$ Dart Package Manager build up [OPTIONS] [FILENAME]
+$ dvm build up [OPTIONS] [FILENAME]
 ```
 
 **Arguments**:
@@ -115,14 +115,14 @@ $ Dart Package Manager build up [OPTIONS] [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-## `Dart Package Manager get`
+## `dvm get`
 
 Get project version
 
 **Usage**:
 
 ```console
-$ Dart Package Manager get [OPTIONS] [PUBSPEC_FILE]
+$ dvm get [OPTIONS] [PUBSPEC_FILE]
 ```
 
 **Arguments**:
@@ -134,14 +134,14 @@ $ Dart Package Manager get [OPTIONS] [PUBSPEC_FILE]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-## `Dart Package Manager major`
+## `dvm major`
 
 Manage "major" version
 
 **Usage**:
 
 ```console
-$ Dart Package Manager major [OPTIONS] COMMAND [ARGS]...
+$ dvm major [OPTIONS] COMMAND [ARGS]...
 ```
 
 **Options**:
@@ -154,14 +154,14 @@ $ Dart Package Manager major [OPTIONS] COMMAND [ARGS]...
 * `set`: Set "major" version
 * `up`: Increase "major" version by 1
 
-### `Dart Package Manager major get`
+### `dvm major get`
 
 Get "major" version
 
 **Usage**:
 
 ```console
-$ Dart Package Manager major get [OPTIONS] [FILENAME]
+$ dvm major get [OPTIONS] [FILENAME]
 ```
 
 **Arguments**:
@@ -173,14 +173,14 @@ $ Dart Package Manager major get [OPTIONS] [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-### `Dart Package Manager major set`
+### `dvm major set`
 
 Set "major" version
 
 **Usage**:
 
 ```console
-$ Dart Package Manager major set [OPTIONS] MAJOR [FILENAME]
+$ dvm major set [OPTIONS] MAJOR [FILENAME]
 ```
 
 **Arguments**:
@@ -193,14 +193,14 @@ $ Dart Package Manager major set [OPTIONS] MAJOR [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-### `Dart Package Manager major up`
+### `dvm major up`
 
 Increase "major" version by 1
 
 **Usage**:
 
 ```console
-$ Dart Package Manager major up [OPTIONS] [FILENAME]
+$ dvm major up [OPTIONS] [FILENAME]
 ```
 
 **Arguments**:
@@ -212,14 +212,14 @@ $ Dart Package Manager major up [OPTIONS] [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-## `Dart Package Manager minor`
+## `dvm minor`
 
 Manage "minor" version
 
 **Usage**:
 
 ```console
-$ Dart Package Manager minor [OPTIONS] COMMAND [ARGS]...
+$ dvm minor [OPTIONS] COMMAND [ARGS]...
 ```
 
 **Options**:
@@ -232,14 +232,14 @@ $ Dart Package Manager minor [OPTIONS] COMMAND [ARGS]...
 * `set`: Set "minor" version
 * `up`: Increase "minor" version by 1
 
-### `Dart Package Manager minor get`
+### `dvm minor get`
 
 Get "minor" version
 
 **Usage**:
 
 ```console
-$ Dart Package Manager minor get [OPTIONS] [FILENAME]
+$ dvm minor get [OPTIONS] [FILENAME]
 ```
 
 **Arguments**:
@@ -251,14 +251,14 @@ $ Dart Package Manager minor get [OPTIONS] [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-### `Dart Package Manager minor set`
+### `dvm minor set`
 
 Set "minor" version
 
 **Usage**:
 
 ```console
-$ Dart Package Manager minor set [OPTIONS] MINOR [FILENAME]
+$ dvm minor set [OPTIONS] MINOR [FILENAME]
 ```
 
 **Arguments**:
@@ -271,14 +271,14 @@ $ Dart Package Manager minor set [OPTIONS] MINOR [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-### `Dart Package Manager minor up`
+### `dvm minor up`
 
 Increase "minor" version by 1
 
 **Usage**:
 
 ```console
-$ Dart Package Manager minor up [OPTIONS] [FILENAME]
+$ dvm minor up [OPTIONS] [FILENAME]
 ```
 
 **Arguments**:
@@ -290,14 +290,14 @@ $ Dart Package Manager minor up [OPTIONS] [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-## `Dart Package Manager patch`
+## `dvm patch`
 
 Manage "patch"
 
 **Usage**:
 
 ```console
-$ Dart Package Manager patch [OPTIONS] COMMAND [ARGS]...
+$ dvm patch [OPTIONS] COMMAND [ARGS]...
 ```
 
 **Options**:
@@ -310,14 +310,14 @@ $ Dart Package Manager patch [OPTIONS] COMMAND [ARGS]...
 * `set`: Set "patch"
 * `up`: Increase "patch" by 1
 
-### `Dart Package Manager patch get`
+### `dvm patch get`
 
 Get "patch"
 
 **Usage**:
 
 ```console
-$ Dart Package Manager patch get [OPTIONS] [FILENAME]
+$ dvm patch get [OPTIONS] [FILENAME]
 ```
 
 **Arguments**:
@@ -329,14 +329,14 @@ $ Dart Package Manager patch get [OPTIONS] [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-### `Dart Package Manager patch set`
+### `dvm patch set`
 
 Set "patch"
 
 **Usage**:
 
 ```console
-$ Dart Package Manager patch set [OPTIONS] PATCH [FILENAME]
+$ dvm patch set [OPTIONS] PATCH [FILENAME]
 ```
 
 **Arguments**:
@@ -349,14 +349,14 @@ $ Dart Package Manager patch set [OPTIONS] PATCH [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-### `Dart Package Manager patch up`
+### `dvm patch up`
 
 Increase "patch" by 1
 
 **Usage**:
 
 ```console
-$ Dart Package Manager patch up [OPTIONS] [FILENAME]
+$ dvm patch up [OPTIONS] [FILENAME]
 ```
 
 **Arguments**:
@@ -368,14 +368,14 @@ $ Dart Package Manager patch up [OPTIONS] [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-## `Dart Package Manager pre-release`
+## `dvm pre-release`
 
 Manage "pre-release" tag
 
 **Usage**:
 
 ```console
-$ Dart Package Manager pre-release [OPTIONS] COMMAND [ARGS]...
+$ dvm pre-release [OPTIONS] COMMAND [ARGS]...
 ```
 
 **Options**:
@@ -388,14 +388,14 @@ $ Dart Package Manager pre-release [OPTIONS] COMMAND [ARGS]...
 * `set`: Set "pre-release" tag
 * `up`: Increase "pre-release" tag's first detected...
 
-### `Dart Package Manager pre-release get`
+### `dvm pre-release get`
 
 Get "pre-release" tag
 
 **Usage**:
 
 ```console
-$ Dart Package Manager pre-release get [OPTIONS] [FILENAME]
+$ dvm pre-release get [OPTIONS] [FILENAME]
 ```
 
 **Arguments**:
@@ -407,14 +407,14 @@ $ Dart Package Manager pre-release get [OPTIONS] [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-### `Dart Package Manager pre-release set`
+### `dvm pre-release set`
 
 Set "pre-release" tag
 
 **Usage**:
 
 ```console
-$ Dart Package Manager pre-release set [OPTIONS] PRE_RELEASE [FILENAME]
+$ dvm pre-release set [OPTIONS] PRE_RELEASE [FILENAME]
 ```
 
 **Arguments**:
@@ -427,14 +427,14 @@ $ Dart Package Manager pre-release set [OPTIONS] PRE_RELEASE [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-### `Dart Package Manager pre-release up`
+### `dvm pre-release up`
 
 Increase "pre-release" tag's first detected number by 1
 
 **Usage**:
 
 ```console
-$ Dart Package Manager pre-release up [OPTIONS] [FILENAME]
+$ dvm pre-release up [OPTIONS] [FILENAME]
 ```
 
 **Arguments**:
@@ -446,19 +446,19 @@ $ Dart Package Manager pre-release up [OPTIONS] [FILENAME]
 * `--verbose / --no-verbose`: [default: True]
 * `--help`: Show this message and exit.
 
-## `Dart Package Manager set`
+## `dvm set`
 
 Set project version
 
 **Usage**:
 
 ```console
-$ Dart Package Manager set [OPTIONS] VERSION [PUBSPEC_FILE]
+$ dvm set [OPTIONS] VERSION [PUBSPEC_FILE]
 ```
 
 **Arguments**:
 
-* `VERSION`: The version to set in format "<major>.<minor>.<patch>-<pre-release>+<build>". The "major", "minor" and "patch" must be all integers. The "pre-release" and "build" are words splited by ".".  [required]
+* `VERSION`: The version to set in format "\<major\>.\<minor\>.\<patch\>-\<pre-release\>+\<build\>". The "major", "minor" and "patch" must be all integers. The "pre-release" and "build" are words splited by ".".  [required]
 * `[PUBSPEC_FILE]`: Path to the pubspec file of the Dart project  [env var: DVM_FILENAME;default: .\pubspec.yaml]
 
 **Options**:
