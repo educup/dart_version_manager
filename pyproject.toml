@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dvm"
-version = "0.0.1"
+version = "1.0.0"
 description = "Dart Version Manager CLI implemented with Python and Typer."
 authors = ["educup <hello@educup.io>"]
 homepage = "https://github.com/educup/dvm"
