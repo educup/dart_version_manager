@@ -9,6 +9,9 @@ documentation = "https://github.com/educup/dvm"
 readme = "README.md"
 license = "MIT"
 
+[tool.poetry.scripts]
+dvm = "dvm.main:app"
+
 [tool.poetry.dependencies]
 python = "^3.8"
 typer = "^0.3.2"
