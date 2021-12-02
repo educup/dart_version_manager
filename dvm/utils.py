@@ -10,6 +10,6 @@ filename_option = typer.Argument(
     writable=True,
     readable=True,
     resolve_path=True,
-    help="Path to the pubspec.yaml file of the Dart project",
+    help="Path to the pubspec file of the Dart project",
     envvar=["DVM_FILENAME"],
 )
