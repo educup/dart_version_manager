@@ -37,11 +37,16 @@ VERSION_CHANGED = 'Version changed from "%s" to "%s".'
 def major_up(
     filename: Optional[Path] = filename_option,
     verbose: bool = True,
+    keep_pre_release: bool = False,
+    keep_build: bool = False,
 ):
     try:
         new_ver = DartVersion.from_pubspec(str(filename))
         old_ver = DartVersion.copy(new_ver)
-        new_ver.increase_major_up()
+        new_ver.increase_major_up(
+            keep_build=keep_build,
+            keep_pre_release=keep_pre_release,
+        )
         new_ver.to_pubspec(str(filename))
         if verbose:
             typer.echo(VERSION_CHANGED % (str(old_ver), str(new_ver)))
