@@ -42,25 +42,43 @@ class Version:
     def __eq__(self, o: object) -> bool:
         return isinstance(o, Version) and str(self) == str(o)
 
-    def increase_major_up(self) -> None:
+    def increase_major_up(
+        self,
+        keep_pre_release: bool = False,
+        keep_build: bool = False,
+    ) -> None:
         self.major += 1
         self.minor = 0
         self.patch = 0
-        self.pre_release = ""
-        self.build = ""
+        if not keep_pre_release:
+            self.pre_release = ""
+        if not keep_build:
+            self.build = ""
         return self
 
-    def increase_minor_up(self) -> None:
+    def increase_minor_up(
+        self,
+        keep_pre_release: bool = False,
+        keep_build: bool = False,
+    ) -> None:
         self.minor += 1
         self.patch = 0
-        self.pre_release = ""
-        self.build = ""
+        if not keep_pre_release:
+            self.pre_release = ""
+        if not keep_build:
+            self.build = ""
         return self
 
-    def increase_patch_up(self) -> None:
+    def increase_patch_up(
+        self,
+        keep_pre_release: bool = False,
+        keep_build: bool = False,
+    ) -> None:
         self.patch += 1
-        self.pre_release = ""
-        self.build = ""
+        if not keep_pre_release:
+            self.pre_release = ""
+        if not keep_build:
+            self.build = ""
         return self
 
     def set_major(self, major) -> None:
