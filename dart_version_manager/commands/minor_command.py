@@ -3,10 +3,10 @@ from typing import Optional
 
 import typer
 
-from dvm.core import DartVersion, NoVersionError
-from dvm.utils import filename_option
+from dart_version_manager.core import DartVersion, NoVersionError
+from dart_version_manager.utils import filename_option
 
-app = typer.Typer(help='Manage "pre-release" tag')
+app = typer.Typer(help='Manage "minor" version')
 
 
 NO_VERSION = (
@@ -14,17 +14,17 @@ NO_VERSION = (
 )
 
 
-@app.command(name="get", help='Get "pre-release" tag')
-def pre_release_get(
+@app.command(name="get", help='Get "minor" version')
+def minor_get(
     filename: Optional[Path] = filename_option,
     verbose: bool = True,
 ):
     try:
         version = DartVersion.from_pubspec(str(filename))
         if verbose:
-            typer.echo(f"pre-release: {version.pre_release}")
+            typer.echo(f"Minor: {version.minor}")
         else:
-            typer.echo(version.pre_release)
+            typer.echo(version.minor)
     except NoVersionError:
         typer.echo(NO_VERSION)
         raise typer.Exit(code=1)
@@ -33,15 +33,20 @@ def pre_release_get(
 VERSION_CHANGED = 'Version changed from "%s" to "%s".'
 
 
-@app.command(name="up", help='Increase "pre-release" tag\'s first detected number by 1')
-def pre_release_up(
+@app.command(name="up", help='Increase "minor" version by 1')
+def minor_up(
     filename: Optional[Path] = filename_option,
     verbose: bool = True,
+    keep_pre_release: bool = False,
+    keep_build: bool = False,
 ):
     try:
         new_ver = DartVersion.from_pubspec(str(filename))
         old_ver = DartVersion.copy(new_ver)
-        new_ver.increase_pre_release_up()
+        new_ver.increase_minor_up(
+            keep_build=keep_build,
+            keep_pre_release=keep_pre_release,
+        )
         new_ver.to_pubspec(str(filename))
         if verbose:
             typer.echo(VERSION_CHANGED % (str(old_ver), str(new_ver)))
@@ -55,16 +60,17 @@ def pre_release_up(
 INVALID_INT = "Invalid integer."
 
 
-@app.command(name="set", help='Set "pre-release" tag')
-def pre_release_set(
-    pre_release: str = typer.Argument(..., help='"pre-release" tag'),
+@app.command(name="set", help='Set "minor" version')
+def minor_set(
+    minor: int = typer.Argument(..., help='"minor" version'),
     filename: Optional[Path] = filename_option,
     verbose: bool = True,
 ):
     try:
         new_ver = DartVersion.from_pubspec(str(filename))
         old_ver = DartVersion.copy(new_ver)
-        new_ver.set_pre_release(pre_release)
+        minor = int(minor)
+        new_ver.set_minor(minor)
         new_ver.to_pubspec(str(filename))
         if verbose:
             typer.echo(VERSION_CHANGED % (str(old_ver), str(new_ver)))

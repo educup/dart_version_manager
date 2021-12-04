@@ -1,16 +1,16 @@
 [tool.poetry]
-name = "dvm"
-version = "1.0.1"
+name = "dart_version_manager"
+version = "1.0.0"
 description = "Dart Version Manager CLI implemented with Python and Typer."
 authors = ["educup <hello@educup.io>"]
-homepage = "https://github.com/educup/dvm"
-repository = "https://github.com/educup/dvm"
-documentation = "https://github.com/educup/dvm"
+homepage = "https://github.com/educup/dart_version_manager"
+repository = "https://github.com/educup/dart_version_manager"
+documentation = "https://github.com/educup/dart_version_manager"
 readme = "README.md"
 license = "MIT"
 
 [tool.poetry.scripts]
-dvm = "dvm.main:app"
+dvm = "dart_version_manager.main:app"
 
 [tool.poetry.dependencies]
 python = "^3.8"

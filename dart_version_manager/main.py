@@ -3,9 +3,15 @@ from typing import Optional
 
 import typer
 
-from dvm.core import DartVersion, NoVersionError, InvalidDataError
-from dvm.commands import build_app, major_app, minor_app, patch_app, pre_release_app
-from dvm.utils import filename_option
+from dart_version_manager.core import DartVersion, NoVersionError, InvalidDataError
+from dart_version_manager.commands import (
+    build_app,
+    major_app,
+    minor_app,
+    patch_app,
+    pre_release_app,
+)
+from dart_version_manager.utils import filename_option
 
 app = typer.Typer(help="Dart Version Manager CLI implemented with Python and Typer")
 

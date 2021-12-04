@@ -24,7 +24,7 @@ We're using the following branches to manage work:
 
 ## How to report bugs
 
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/educup/dvm/issues/new/choose); it's that easy!
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/educup/dart_version_manager/issues/new/choose); it's that easy!
 
 ### Write bug reports with detail, background, and sample code
 

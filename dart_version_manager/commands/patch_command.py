@@ -3,8 +3,8 @@ from typing import Optional
 
 import typer
 
-from dvm.core import DartVersion, NoVersionError
-from dvm.utils import filename_option
+from dart_version_manager.core import DartVersion, NoVersionError
+from dart_version_manager.utils import filename_option
 
 app = typer.Typer(help='Manage "patch"')
 

@@ -1,7 +1,7 @@
 site_name: Dart Version Manager
-site_url: https://github.com/educup/dvm
-repo_url: https://github.com/educup/dvm
-edit_uri: "https://github.com/educup/dvm/edit/main/docs"
+site_url: https://github.com/educup/dart_version_manager
+repo_url: https://github.com/educup/dart_version_manager
+edit_uri: "https://github.com/educup/dart_version_manager/edit/main/docs"
 copyright: Developed with ❤️ for EducUp
 
 theme:

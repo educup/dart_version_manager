@@ -3,10 +3,10 @@ from typing import Optional
 
 import typer
 
-from dvm.core import DartVersion, NoVersionError
-from dvm.utils import filename_option
+from dart_version_manager.core import DartVersion, NoVersionError
+from dart_version_manager.utils import filename_option
 
-app = typer.Typer(help='Manage "minor" version')
+app = typer.Typer(help='Manage "major" version')
 
 
 NO_VERSION = (
@@ -14,17 +14,17 @@ NO_VERSION = (
 )
 
 
-@app.command(name="get", help='Get "minor" version')
-def minor_get(
+@app.command(name="get", help='Get "major" version')
+def major_get(
     filename: Optional[Path] = filename_option,
     verbose: bool = True,
 ):
     try:
         version = DartVersion.from_pubspec(str(filename))
         if verbose:
-            typer.echo(f"Minor: {version.minor}")
+            typer.echo(f"Major: {version.major}")
         else:
-            typer.echo(version.minor)
+            typer.echo(version.major)
     except NoVersionError:
         typer.echo(NO_VERSION)
         raise typer.Exit(code=1)
@@ -33,8 +33,8 @@ def minor_get(
 VERSION_CHANGED = 'Version changed from "%s" to "%s".'
 
 
-@app.command(name="up", help='Increase "minor" version by 1')
-def minor_up(
+@app.command(name="up", help='Increase "major" version by 1')
+def major_up(
     filename: Optional[Path] = filename_option,
     verbose: bool = True,
     keep_pre_release: bool = False,
@@ -43,7 +43,7 @@ def minor_up(
     try:
         new_ver = DartVersion.from_pubspec(str(filename))
         old_ver = DartVersion.copy(new_ver)
-        new_ver.increase_minor_up(
+        new_ver.increase_major_up(
             keep_build=keep_build,
             keep_pre_release=keep_pre_release,
         )
@@ -60,17 +60,17 @@ def minor_up(
 INVALID_INT = "Invalid integer."
 
 
-@app.command(name="set", help='Set "minor" version')
-def minor_set(
-    minor: int = typer.Argument(..., help='"minor" version'),
+@app.command(name="set", help='Set "major" version')
+def major_set(
+    major: int = typer.Argument(..., help='"major" version'),
     filename: Optional[Path] = filename_option,
     verbose: bool = True,
 ):
     try:
         new_ver = DartVersion.from_pubspec(str(filename))
         old_ver = DartVersion.copy(new_ver)
-        minor = int(minor)
-        new_ver.set_minor(minor)
+        major = int(major)
+        new_ver.set_major(major)
         new_ver.to_pubspec(str(filename))
         if verbose:
             typer.echo(VERSION_CHANGED % (str(old_ver), str(new_ver)))
