@@ -1,12 +1,8 @@
-from dart_version_manager.main import app
 from typer.testing import CliRunner
 
-from .config import (
-    VERSION,
-    build_version,
-    prepare_tmp_pubspec,
-    ensure_edit,
-)
+from dart_version_manager.main import app
+
+from .config import VERSION, build_version, ensure_edit, prepare_tmp_pubspec
 
 runner = CliRunner()
 

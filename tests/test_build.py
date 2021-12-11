@@ -1,5 +1,6 @@
-from dart_version_manager.main import app
 from typer.testing import CliRunner
+
+from dart_version_manager.main import app
 
 from .config import (
     BUILD,
