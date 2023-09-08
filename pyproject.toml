@@ -18,7 +18,7 @@ typer = "^0.3.2"
 PyYAML = "^6.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.4.1"
+pytest = "^7.4.2"
 black = "^21.12b0"
 flake8 = "^5.0.4"
 isort = "^5.12.0"
